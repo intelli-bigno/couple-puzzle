@@ -1,0 +1,124 @@
+.container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  gap: 24px;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--gold);
+}
+
+.roomInfo {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.code {
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.playerInfo {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--green-light);
+  font-weight: 700;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+.path {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 50%;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--brown) 0px,
+    var(--brown) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+  width: 160px;
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 3px solid var(--brown);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s;
+}
+
+.stage:not(.locked):hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.cleared {
+  border-color: var(--gold) !important;
+  background: linear-gradient(135deg, var(--bg-card), rgba(255, 215, 0, 0.1));
+}
+
+.locked {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.stageEmoji {
+  font-size: 40px;
+}
+
+.stageName {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.star {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 24px;
+  animation: sparkle 2s infinite;
+}
+
+.victoryBtn {
+  padding: 16px 32px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold), #ff9800);
+  color: var(--brown-dark);
+  border: none;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+  animation: pulse 2s infinite;
+}

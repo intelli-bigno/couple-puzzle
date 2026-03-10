@@ -1,0 +1,149 @@
+.container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  gap: 16px;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.backBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: none;
+  color: var(--text-dim);
+  font-size: 14px;
+  padding: 4px 8px;
+}
+
+.title {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 900;
+}
+
+.turnInfo {
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.myTurn {
+  color: var(--gold);
+  font-weight: 700;
+  animation: pulse 1s infinite;
+}
+
+.otherTurn {
+  color: var(--text-dim);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.card {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: none;
+  border: none;
+  perspective: 600px;
+  padding: 0;
+}
+
+.cardInner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.flipped .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront, .cardBack {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  backface-visibility: hidden;
+}
+
+.cardFront {
+  background: linear-gradient(135deg, var(--green-light), var(--green));
+  border: 2px solid var(--brown);
+}
+
+.cardBack {
+  background: var(--bg-card);
+  border: 2px solid var(--gold);
+  transform: rotateY(180deg);
+}
+
+.matched .cardBack {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: var(--gold);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 340px;
+  color: var(--text-dim);
+  font-size: 14px;
+  padding: 0 4px;
+}
+
+.story, .clear {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 16px;
+  text-align: center;
+  animation: fadeIn 0.5s;
+}
+
+.storyEmoji, .clearEmoji {
+  font-size: 80px;
+}
+
+.storyHint {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.storyBtn {
+  margin-top: 8px;
+  padding: 14px 32px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--green-light), var(--green));
+  color: white;
+  border: 2px solid var(--gold);
+}
+
+.stars {
+  font-size: 36px;
+  animation: sparkle 1.5s infinite;
+}

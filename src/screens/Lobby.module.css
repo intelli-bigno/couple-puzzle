@@ -1,0 +1,123 @@
+.container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 32px;
+}
+
+.hero {
+  text-align: center;
+}
+
+.island {
+  font-size: 80px;
+  animation: pulse 2s infinite;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: var(--text-dim);
+  font-size: 16px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--green-light), var(--green));
+  color: white;
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.btn:hover {
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+}
+
+.btnSecondary {
+  background: linear-gradient(135deg, var(--brown), var(--brown-dark));
+}
+
+.card {
+  background: var(--bg-card);
+  border: 2px solid var(--brown);
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.code {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  color: var(--gold);
+  background: rgba(0,0,0,0.3);
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 2px dashed var(--gold);
+}
+
+.waiting {
+  color: var(--text-dim);
+  animation: pulse 1.5s infinite;
+}
+
+.input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid var(--brown);
+  background: rgba(0,0,0,0.3);
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 6px;
+}
+
+.input::placeholder {
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  font-size: 16px;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 14px;
+}
+
+.link {
+  background: none;
+  color: var(--text-dim);
+  font-size: 14px;
+  padding: 8px;
+}
