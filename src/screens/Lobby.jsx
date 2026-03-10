@@ -68,6 +68,9 @@ export default function Lobby({ uid, onJoin }) {
           <button className={`${styles.btn} ${styles.btnSecondary}`} onClick={() => setMode('join')}>
             🚪 참가하기
           </button>
+          <button className={`${styles.btn} ${styles.btnTest || ''}`} onClick={() => setMode('test')} style={{ background: 'linear-gradient(135deg, #ff9800, #ff5722)', marginTop: 8 }}>
+            🧪 혼자 테스트하기
+          </button>
         </div>
       )}
 
@@ -84,6 +87,36 @@ export default function Lobby({ uid, onJoin }) {
           <p>방 코드를 상대방에게 알려주세요!</p>
           <div className={styles.code}>{createdCode}</div>
           <p className={styles.waiting}>상대방 기다리는 중... 💫</p>
+        </div>
+      )}
+
+      {mode === 'test' && (
+        <div className={`${styles.card} fade-in`}>
+          <p>🧪 테스트 모드</p>
+          <p style={{ fontSize: 14, opacity: 0.8 }}>혼자서 P1/P2를 전환하며 플레이!</p>
+          <button className={styles.btn} onClick={async () => {
+            const roomCode = 'TEST' + Math.random().toString(36).substring(2, 4).toUpperCase();
+            await setDoc(doc(db, 'puzzle-rooms', roomCode), {
+              players: { p1: uid, p2: uid + '_p2' },
+              stage: 1,
+              stagesCleared: [],
+              createdAt: Date.now(),
+              testMode: true,
+            });
+            onJoin(roomCode, 1);
+          }}>P1로 시작 🎮</button>
+          <button className={`${styles.btn} ${styles.btnSecondary}`} style={{ marginTop: 8 }} onClick={async () => {
+            const roomCode = 'TEST' + Math.random().toString(36).substring(2, 4).toUpperCase();
+            await setDoc(doc(db, 'puzzle-rooms', roomCode), {
+              players: { p1: uid + '_p1', p2: uid },
+              stage: 1,
+              stagesCleared: [],
+              createdAt: Date.now(),
+              testMode: true,
+            });
+            onJoin(roomCode, 2);
+          }}>P2로 시작 🎮</button>
+          <button className={styles.link} onClick={() => setMode(null)}>← 뒤로</button>
         </div>
       )}
 
